@@ -1,0 +1,7 @@
+th {font-family:serif;}
+td {font-family:sans-serif; font-size:12px; text-align:right;}
+.week {width:80px;}
+.wend {width:40px;}
+
+#wDept {position: absolute; left: 5px; width: 115px;}
+#wTerm {position: absolute; right: 5px; width: 95px;}

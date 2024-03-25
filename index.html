@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- CS 491 Team 2 Exercise 2: Prototype
+Due: 3/32/2024
+Instructor: Jordan T. Hastings
+Members: Marc Vincent Amandoron, Fiorina Chau, Sabrina Jackson, Kyle Johnson, Nicole Siron, Jesus Valenzuela, Reni Wu -->
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Title</title>
+</head>
+<body>
+<span id=wDept>&nbsp;Dept: <input disabled id=Dept type=text size=5 placeholder="CS"></span>
+<span id=wTerm> Term: <input disabled id=Term type=text size=5 placeholder="S24"></span>
+<div align=CENTER><b> S C H E D U L E of C L A S S E S</b></div>
+<br>
+<div id=wFilt>
+    &nbsp; Time: <select id=Hour><option>ANY<option>A.M.<option>P.M.<option>EVE</select>
+    &nbsp; Freq: <select id=Freq><option>ALL<option>M/W<option>M/W/F<option>T/H<option>Other</option></select>
+    &nbsp; Number: <input id=Number type=text size=5 placeholder=500>
+    &nbsp; Type: <select id=Type><option>ALL<option>LEC<option>LAB<option>DIS<option>Other</select>
+    &nbsp; Inst: <select id=Inst><option>ANY<option>TBA</select>
+</div>
+<hr size=2>
+<table border=1>
+    <tr><th width=40px>Hour</th><th class=wend>Sun</th><th class=week>Mon</th><th class=week>Tue</th><th class=week>Wed</th><th class=week>Thu</th><th class=week>Fri</th><th class=wend>Sat</th></tr>
+    <tr><td>7:00A<br>--30--</td></tr>
+    <tr><td>8:00A<br>--30--</td></tr>
+    <tr><td>9:00A<br>--30--</td></tr>
+    <tr><td>10:00A<br>--30--</td></tr>
+    <tr><td>11:00A<br>--30--</td></tr>
+    <tr><td>12:00N<br>--30--</td></tr>
+    <tr><td>1:00P<br>--30--</td></tr>
+    <tr><td>2:00P<br>--30--</td></tr>
+    <tr><td>3:00P<br>--30--</td></tr>
+    <tr><td>4:00P<br>--30--</td></tr>
+    <tr><td>5:00P<br>--30--</td></tr>
+    <tr><td>6:00P<br>--30--</td></tr>
+    <tr><td>7:00P<br>--30--</td></tr>
+</table>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
