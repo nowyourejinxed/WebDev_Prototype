@@ -135,10 +135,10 @@ function load(array) {
                     var t = hourCell.innerText;
                     t += (t.length ? "\n" : "") + crs.slice(0, 7) + sec.slice(-3);
                     hourCell.innerText = t;
-                } else {
+                } /* else {
                     console.log(`No cell found for ID: ${id}`);
                     console.log($("#Number").val());
-                }
+                } */
             }
         }
     }
@@ -146,18 +146,16 @@ function load(array) {
 
 function hoverInfo(){
     // Add hover event for table elements
-    $("td").hover(function() {
-            // For mouse entering a table element
+    $("td").hover(function() { // For mouse entering a table element
             // Get time from leftmost column
             time = ($(this).closest("tr").text().trim().slice(0, 4));
             if(!validSpace(this)) return;
-            $(this).css("background-color", "pink");
+            $(this).css("background-color", "lightgrey");
             // Update text in block to show full course description
             var newText = obj.join('\n');
             $(this).text(newText);
         },
-        function() {
-            // For mouse exiting a table element
+        function() { // For mouse exiting a table element
             if(!validSpace(this)) return;
             $(this).css("background-color", "");
             //if($(this).text().indexOf("LAB") >= 0) $(this).css("backgroundColor","#ccf")
@@ -172,18 +170,17 @@ function validSpace(cell){
     first = t.charAt(0);
     // Determines if space is empty or contains a time
     if (t == "" || (first >= 1 && first <= 9)) return false;
-    obj = getData(time, $(cell).text());
     // Checks if a class matching the calendar description was found in JSON data
-    if(obj === null) return false;
+    obj = getData(time, $(cell).text());
     // Saves the original text
     $(cell).data("obj", obj);
-    return true;
+    return obj != null;
 }
 
 function getData(date, text){
     // For each JSON array, check if the time, course name, and type match
     for(var i = 0; i < classArray.length; i++){
-        if(classArray[i][3].includes(date) && classArray[i][0].includes(text.split(' ')[1]) && classArray[i][2].includes(text.split(' ')[2])) return classArray[i];
+        if(classArray[i][3].includes(date) && classArray[i][ 0].includes(text.split(' ')[1]) && classArray[i][2].includes(text.split(' ')[2])) return classArray[i];
     }
 }
 
@@ -192,3 +189,12 @@ function getData(date, text){
 
 populateCalendar(JSONIN)
 hoverInfo();
+
+//CSS styling using Jquery
+$("th").css({"font-family": "serif", "background-color": "midnightblue", "width": "155px", "height":"50px", "color":"white"});
+$("td").css({"font-family": "sans-serif", "font-size":"12px", "text-align":"center", "width": "155px", "height":"50px"});
+$("img").css({"width": "80px", "height": "80px", "display": "block", "position": "static"});
+$("#wDept").css({"left": "1230px"});
+$(".title").css({"font-size": "X-large", "text-align": "center", "display": "flex", "justify-content":"center"});
+
+
