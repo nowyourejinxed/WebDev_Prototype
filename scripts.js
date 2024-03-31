@@ -107,18 +107,7 @@ function filterAndLoadClasses(classArray){
     load(filteredArray);
 }
 
-//function to see if the provided class level will match the crse number of the JSON data
-function numStartsWith(input, startingInt){
-    const match = input.match(/\d+/); //using regex expression to find the numbers w/in the course string
-    const intToLookFor = startingInt[0];
-    if(match){ //make sure there is a course number in the passed in input string
-        //wanna check if the first number matches the int we are looking for
-        const number = match[0];
-        return number.startsWith(intToLookFor.toString());
-    }
 
-    return false;
-}
 
 function load(array) {
     const dow = ["", "Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
