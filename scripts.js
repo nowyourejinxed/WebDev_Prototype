@@ -133,6 +133,12 @@ function load(array) {
     }
 }
 
+/**
+ * Adds hover effects to filled cells within a table. On mouse enter, it changes the cell's background color,
+ * retrieves the time from the leftmost column, and updates the cell's text to show the full course description.
+ * On mouse leave, it resets the cell's background color and text to its previous state.
+ * Depends on global `obj` for course descriptions and `validSpace` to check cell validity.
+*/
 function hoverInfo(){
     // Add hover event for table elements
     $("td").hover(function() { // For mouse entering a table element
@@ -154,6 +160,13 @@ function hoverInfo(){
         });
 }
 
+/**
+ * Checks if a table cell is a valid space by determining if it is empty or contains a time.
+ * This function is called by the hoverInfo function.
+ * 
+ * @param {HTMLElement} cell - A table element (cell) to check if the space already contains a time or not.
+ * @returns {boolean} Returns false if the cell is empty or contains a number (1-9) indicating a time; otherwise, checks for a class matching the calendar description in JSON data and returns true if found.
+ */
 function validSpace(cell){
     var t = $(cell).text();
     first = t.charAt(0);
@@ -166,6 +179,14 @@ function validSpace(cell){
     return obj != null;
 }
 
+/**
+ * Retrieves data based on provided date and text. This function is called by the validSpace function.
+ * For each entry in the class array, it checks if the time, course name, and type match the provided criteria.
+ * 
+ * @param {string} date - A date string to check for corresponding entries in the JSON array.
+ * @param {string} text - A text string used to match course name and type in the JSON array.
+ * @returns {Object|array} The matching class array entry, or undefined if no match is found.
+ */
 function getData(date, text){
     // For each JSON array, check if the time, course name, and type match
     for(var i = 0; i < classArray.length; i++){
